@@ -45,8 +45,35 @@
 					<h3>ESEMPI CLASSICI</h3>
 					<p><strong>Albero Frattale:</strong> Un esempio fondamentale che mostra come regole semplici possano creare strutture complesse e naturali. Utilizzando le regole 1 → 11 e 0 → 1[0]0, il sistema genera una struttura ramificata auto-similare che ricorda un albero.</p>
 					
-					<p><strong>Crescita Alga:</strong> Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Con le regole A → AB e B → A, il sistema genera una sequenza che cresce in modo esponenziale, seguendo un pattern simile alla sequenza di Fibonacci.</p>
+					<div class="visualization-box alberi-frattali-gallery" style="display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; align-items: flex-end; margin-top: 18px;">
+						<div style="text-align: center;">
+							<img src="tree1.gif" alt="Albero frattale 1" style="width: 120px; max-width: 100%;">
+							<div>1</div>
+						</div>
+						<div style="text-align: center;">
+							<img src="tree2.gif" alt="Albero frattale 2" style="width: 120px; max-width: 100%;">
+							<div>2</div>
+						</div>
+						<div style="text-align: center;">
+							<img src="tree3.gif" alt="Albero frattale 3" style="width: 120px; max-width: 100%;">
+							<div>3</div>
+						</div>
+						<div style="text-align: center;">
+							<img src="tree4.gif" alt="Albero frattale 4" style="width: 120px; max-width: 100%;">
+							<div>4</div>
+						</div>
+						<div style="text-align: center;">
+							<img src="tree5.gif" alt="Albero frattale 5" style="width: 100px; max-width: 80%;">
+							<div>5</div>
+						</div>
+						<div style="text-align: center;">
+							<img src="tree6.gif" alt="Albero frattale 6" style="width: 120px; max-width: 100%;">
+							<div>6</div>
+						</div>
+					</div>
 				</div>
+
+				<p><strong>Crescita Alga:</strong> Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Con le regole A → AB e B → A, il sistema genera una sequenza che cresce in modo esponenziale, seguendo un pattern simile alla sequenza di Fibonacci.</p>
 			</div>
 		</section>
 
@@ -133,7 +160,13 @@ Proprietà:
 - Dimensione frattale: log(4)/log(3) ≈ 1.262
 					</pre>
 					<div class="visualization-box">
-						<img src="koch_curve.gif" alt="Curva di Koch GIF" style="max-width: 100%; height: auto;">
+						<div id="koch-canvas"></div>
+					</div>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+					<script src="koch_snowflake.js"></script>
+					<div style="text-align:center; margin-top: 10px;">
+						<div id="koch-anim-canvas" style="width: 400px; height: 120px; margin: 0 auto;"></div>
+						<p style="font-size: 0.9em; color: #333;">Animazione della crescita della curva di Koch</p>
 					</div>
 				</div>
 
