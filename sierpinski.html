@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangolo di Sierpinski - Animazione</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let currentLevel = 0;
+        let maxLevel = 7;
+        let frameCounter = 0;
+        let framesPerLevel = 60; // Numero di frame per ogni livello
+
+        function setup() {
+            createCanvas(800, 800);
+            frameRate(30); // Velocità dell'animazione
+        }
+
+        function draw() {
+            background(0);
+            stroke(0, 0, 255); // Colore blu
+            strokeWeight(1);
+            noFill();
+
+            // Calcola le dimensioni del triangolo principale
+            let size = min(width, height) * 0.8;
+            let h = size * (Math.sqrt(3)/2);
+            
+            // Punto superiore del triangolo
+            let x1 = width/2;
+            let y1 = (height - h)/2;
+            
+            // Punto in basso a sinistra
+            let x2 = width/2 - size/2;
+            let y2 = (height + h)/2;
+            
+            // Punto in basso a destra
+            let x3 = width/2 + size/2;
+            let y3 = (height + h)/2;
+
+            // Disegna il triangolo di Sierpinski con il livello corrente
+            sierpinski(x1, y1, x2, y2, x3, y3, currentLevel);
+
+            // Gestione dell'animazione
+            frameCounter++;
+            if (frameCounter >= framesPerLevel) {
+                frameCounter = 0;
+                if (currentLevel < maxLevel) {
+                    currentLevel++;
+                } else {
+                    // Ricomincia l'animazione dopo una breve pausa
+                    setTimeout(() => {
+                        currentLevel = 0;
+                    }, 1000);
+                }
+            }
+        }
+
+        function sierpinski(x1, y1, x2, y2, x3, y3, level) {
+            // Disegna sempre il triangolo corrente
+            triangle(x1, y1, x2, y2, x3, y3);
+
+            if (level <= 0) return;
+
+            // Calcola i punti medi dei lati
+            let x12 = (x1 + x2) / 2;
+            let y12 = (y1 + y2) / 2;
+            let x23 = (x2 + x3) / 2;
+            let y23 = (y2 + y3) / 2;
+            let x31 = (x3 + x1) / 2;
+            let y31 = (y3 + y1) / 2;
+
+            // Effetto di fade-in per i nuovi triangoli
+            let alpha = map(frameCounter, 0, framesPerLevel, 0, 255);
+            stroke(0, 0, 255, alpha);
+
+            // Ricorsione per i tre triangoli più piccoli
+            sierpinski(x1, y1, x12, y12, x31, y31, level - 1);
+            sierpinski(x12, y12, x2, y2, x23, y23, level - 1);
+            sierpinski(x31, y31, x23, y23, x3, y3, level - 1);
+        }
+    </script>
+</body>
+</html> 
