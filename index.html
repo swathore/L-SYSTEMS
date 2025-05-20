@@ -22,8 +22,9 @@
 		<ul>
 			<li><a href="#intro">INTRODUZIONE</a></li>
 			<li><a href="#definizione">COMPONENTI BASE</a></li>
+			<li><a href="#turtle">TURTLE GEOMETRY</a></li>
 			<li><a href="#esempi">ESEMPI</a></li>
-			<li><a href="#applicazioni">APPLICAZIONI</a></li>
+			<li><a href="#vantaggi-sfide">VANTAGGI E SFIDE</a></li>
 			<li><a href="#conclusioni">CONCLUSIONI</a></li>
 		</ul>
 	</nav>
@@ -43,18 +44,61 @@
 		<section id="definizione">
 			<h2>COMPONENTI BASE</h2>
 			<div class="content">
-				<div class="components">
-					<div class="component">
-						
-						<ul>
-							<li>Alfabeto di simboli (utilizzabili per costruire stringhe)</li>
-							<li>Assioma o stringa iniziale (da cui ha inizio il processo)</li>
-							<li>Regole di produzione (che determinano come i simboli si trasformano ad ogni interazione)</li>
-							<div class="highlight-box">
+				<p>Un L-System è definito formalmente come una tripla:</p>
+				<div class="highlight-box">
+					<p>G = (V, ω, P)</p>
+					<p>dove:</p>
+					<ul>
+						<li><strong>V</strong> è l'alfabeto, un insieme finito di simboli</li>
+						<li><strong>ω</strong> è l'assioma o stringa iniziale</li>
+						<li><strong>P</strong> è un insieme di regole di produzione (productions), ognuna nella forma a → χ, dove a ∈ V e χ ∈ V*</li>
+					</ul>
+				</div>
+				<p>Le regole vengono applicate simultaneamente a tutti i simboli della stringa corrente. Questa caratteristica distingue gli L-Systems dai sistemi di riscrittura sequenziale come le grammatiche di Chomsky.</p>
+				<div class="highlight-box">
+					<p>Applicando le regole in maniera iterativa, si genera una sequenza di stringhe sempre più complesse, che può essere infinita. Questo metodo risulta estremamente efficace per rappresentare fenomeni di crescita ramificata e auto-similarità.</p>
+				</div>
+			</div>
+		</section>
 
-							<p>Applicando le regole in maniera iterativa, si genera una sequenza di stringhe sempre più complesse, che può essere infinita.Questo metodo risulta estremamente efficace per rappresentare fenomeni di crescita ramificata e auto-similarità.</p>
-							</div>
-						</ul>
+		<section id="turtle">
+			<h2>TURTLE GEOMETRY</h2>
+			<div class="content">
+				<p>La Turtle Geometry è un sistema di programmazione grafica sviluppato da Seymour Papert nel 1967, che utilizza una "tartaruga" virtuale per disegnare forme geometriche. Questo concetto è fondamentale per la visualizzazione dei sistemi L-System.</p>
+				
+				<div class="highlight-box">
+					<h3>COMANDI BASE</h3>
+					<p>La tartaruga si muove seguendo comandi semplici:</p>
+					<ul>
+						<li><strong>F</strong>: avanti (disegna una linea)</li>
+						<li><strong>+</strong>: ruota a destra di un angolo θ</li>
+						<li><strong>-</strong>: ruota a sinistra di un angolo θ</li>
+						<li><strong>[</strong>: salva la posizione e l'orientamento attuale (inizio di un ramo)</li>
+						<li><strong>]</strong>: ripristina la posizione e l'orientamento precedenti (fine di un ramo)</li>
+					</ul>
+				</div>
+
+				<div class="highlight-box">
+					<h3>COMANDI 3D</h3>
+					<p>Per la modellazione tridimensionale, sono disponibili comandi aggiuntivi:</p>
+					<ul>
+						<li><strong>&, ^</strong>: rotazioni lungo l'asse Z</li>
+						<li><strong>\, /</strong>: rotazioni lungo l'asse X</li>
+						<li><strong>&lt;, &gt;</strong>: rotazioni lungo l'asse Y</li>
+						<li><strong>|</strong>: rotazione di 180°</li>
+					</ul>
+				</div>
+
+				<div class="example-box">
+					<h3>ESEMPIO DI MOVIMENTO</h3>
+					<pre>
+Comandi: F+F-F-F+F
+Angolo: 90°
+
+Risultato: Un quadrato
+					</pre>
+					<div class="visualization-box">
+						<div id="turtle-canvas"></div>
 					</div>
 				</div>
 			</div>
@@ -65,14 +109,29 @@
 			<div class="content">
 				<div class="example-box">
 					<h3>ALBERO FRATTALE</h3>
+					<p>Un esempio di sistema-L che genera un albero frattale tramite riscrittura ricorsiva e turtle graphics. Questo sistema mostra come regole semplici possano creare strutture complesse e naturali.</p>
+					
 					<pre>
-Variabili: 0, 1
-Costanti: [, ]
-Assioma: 0
-Regole:
-1 → 11
-0 → 1[0]0
+Sistema-L:
+- Variabili: 0, 1
+- Costanti: [, ]
+- Assioma: 0
+- Regole:
+  1 → 11
+  0 → 1[0]0
+
+Evoluzione della stringa:
+0 → 1[0]0 → 11[1[0]0]1[0]0 → 1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0
+
+Interpretazione grafica Turtle:
+- 0: disegna linea con foglia
+- 1: disegna linea
+- [: salva posizione e ruota a sinistra 45°
+- ]: ripristina posizione e ruota a destra 45°
 					</pre>
+					<div class="highlight-box">
+						<p>Questo sistema produce una struttura ramificata e auto-similare simile a un albero. La regola 0 → 1[0]0 crea la ramificazione, mentre 1 → 11 fa crescere i rami. Le parentesi quadre gestiscono la memoria della posizione per creare i rami secondari.</p>
+					</div>
 					<div class="visualization-box">
 						<div id="tree-canvas"></div>
 					</div>
@@ -80,13 +139,29 @@ Regole:
 
 				<div class="example-box">
 					<h3>CRESCITA ALGA</h3>
+					<p>Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Questo L-System semplice mostra come regole elementari possano generare pattern complessi di crescita.</p>
+					
 					<pre>
-Variabili: A, B
-Assioma: A
-Regole:
-A → AB
-B → A
+Sistema-L:
+- Variabili: A, B
+- Costanti: nessuna
+- Assioma: A
+- Regole:
+  A → AB
+  B → A
+
+Evoluzione per iterazioni (n):
+n=0 : A
+n=1 : AB
+n=2 : ABA
+n=3 : ABAAB
+n=4 : ABAABABA
+n=5 : ABAABABAABAAB
+n=6 : ABAABABAABAABABAABABA
 					</pre>
+					<div class="highlight-box">
+						<p>La sequenza mostra una crescita autoreplicante e deterministica. Ogni iterazione genera una stringa più lunga, seguendo un pattern che ricorda la sequenza di Fibonacci. La lunghezza della stringa cresce in modo esponenziale, dimostrando la potenza di questo semplice sistema.</p>
+					</div>
 					<div class="visualization-box">
 						<div id="algae-canvas"></div>
 					</div>
@@ -94,15 +169,19 @@ B → A
 
 				<div class="example-box">
 					<h3>CURVA DI KOCH</h3>
+					<p>Una delle prime curve frattali scoperte, creata da Helge von Koch nel 1904. Partendo da un semplice segmento, ad ogni passo ogni segmento viene sostituito da quattro segmenti più piccoli. Questo processo crea una curva sempre più frastagliata ma incredibilmente regolare.</p>
+					
 					<pre>
-Alfabeto: V = {F, +, -}
-Assioma: F
-Regola:
-F → F+F--F+F
-Angolo: θ = 60°
+Variabili e regole:
+- Assioma: F (segmento rettilineo)
+- Regola: F → F+F--F+F
+- Angolo: 60°
 
-Lunghezza dopo n iterazioni:
-Ln = L0 · (4/3)^n
+Proprietà:
+- Lunghezza: aumenta di 4/3 ad ogni livello
+- Perimetro: tende all'infinito
+- Area: rimane finita
+- Dimensione frattale: log(4)/log(3) ≈ 1.262
 					</pre>
 					<div class="visualization-box">
 						<div id="koch-canvas"></div>
@@ -111,15 +190,18 @@ Ln = L0 · (4/3)^n
 
 				<div class="example-box">
 					<h3>TRIANGOLO DI SIERPIŃSKI</h3>
+					<p>Un frattale che nasce da un semplice triangolo equilatero. Ad ogni passo, ogni triangolo viene diviso in quattro parti e quello centrale viene rimosso. Questo processo, ripetuto all'infinito, crea un pattern affascinante di triangoli sempre più piccoli.</p>
+					
 					<pre>
-Metodo geometrico:
-Livello 0: triangolo equilatero
-Livello 1: 4 triangoli, uno rimosso
-Livello n: suddivisione ricorsiva
+Variabili e regole:
+- Assioma: triangolo equilatero
+- Regola: dividi ogni triangolo in 4 e rimuovi quello centrale
+- Angolo: 60°
 
 Proprietà:
-Numero triangoli: Tn = 3^n
-Lunghezza lato: an = a/(2^n)
+- Numero triangoli: triplica ad ogni livello (3^n)
+- Dimensione: si dimezza ad ogni livello (a/2^n)
+- Dimensione frattale: log(3)/log(2) ≈ 1.585
 					</pre>
 					<div class="visualization-box">
 						<div id="sierpinski-canvas"></div>
@@ -128,22 +210,27 @@ Lunghezza lato: an = a/(2^n)
 			</div>
 		</section>
 
-		<section id="applicazioni">
-			<h2>APPLICAZIONI</h2>
+		<section id="vantaggi-sfide">
+			<h2>VANTAGGI E SFIDE</h2>
 			<div class="content">
-				<div class="grid">
-					<div class="grid-item">
-						<h3>ARCHITETTURA</h3>
-						<p>Eden Project, Cornovaglia</p>
-					</div>
-					<div class="grid-item">
-						<h3>DESIGN</h3>
-						<p>Lampada Hyphae</p>
-					</div>
-					<div class="grid-item">
-						<h3>ARTE GENERATIVA</h3>
-						<p>Forme organiche e frattali</p>
-					</div>
+				<div class="highlight-box">
+					<h3>VANTAGGI</h3>
+					<ul>
+						<li><strong>Efficienza</strong>: Un piccolo insieme di regole può generare strutture complesse e dettagliate, rendendo il sistema molto efficiente nella rappresentazione di forme naturali.</li>
+						<li><strong>Versatilità</strong>: Gli L-Systems possono essere applicati in diversi contesti, dalla modellazione di piante alla generazione di arte digitale, dimostrando una straordinaria adattabilità.</li>
+						<li><strong>Precisione Matematica</strong>: La natura formale e matematica degli L-Systems permette una rappresentazione precisa e riproducibile di pattern naturali complessi.</li>
+						<li><strong>Scalabilità</strong>: Il sistema può essere facilmente esteso aggiungendo nuove regole o modificando quelle esistenti, permettendo una crescita controllata della complessità.</li>
+					</ul>
+				</div>
+
+				<div class="highlight-box">
+					<h3>SFIDE</h3>
+					<ul>
+						<li><strong>Sensibilità alle Regole</strong>: Piccole modifiche nelle regole possono portare a risultati radicalmente diversi, richiedendo un'attenta calibrazione.</li>
+						<li><strong>Complessità Computazionale</strong>: Con l'aumentare delle iterazioni, la lunghezza delle stringhe cresce esponenzialmente, richiedendo risorse computazionali significative.</li>
+						<li><strong>Interpretazione Geometrica</strong>: La traduzione delle stringhe in forme geometriche può essere complessa, specialmente quando si lavora con sistemi 3D o strutture ramificate.</li>
+						<li><strong>Limitazioni nella Modellazione</strong>: Alcuni fenomeni naturali potrebbero richiedere regole troppo complesse per essere efficacemente modellati con L-Systems puri.</li>
+					</ul>
 				</div>
 			</div>
 		</section>
@@ -151,13 +238,13 @@ Lunghezza lato: an = a/(2^n)
 		<section id="conclusioni">
 			<h2>CONCLUSIONI</h2>
 			<div class="content">
-				<p>Gli L-Systems rappresentano un ponte tra la natura e la tecnologia, offrendo applicazioni che spaziano dalla biologia alla scultura digitale, dall'urbanistica all'intelligenza artificiale creativa.</p>
+				<p>Gli L-Systems, nati per modellare la crescita di organismi semplici, si sono evoluti in uno strumento potente e versatile per rappresentare, simulare e creare strutture naturali e artistiche stimolando nuove visioni in ambiti che spaziano dalla biologia alla scultura digitale, dall'urbanistica all'intelligenza artificiale creativa.</p>
 			</div>
 		</section>
 	</main>
 
 	<footer>
-		<p>L-SYSTEMS © 2024</p>
+		<p>L-SYSTEMS di Viola Shillito e Asia Torreggiani</p>
 	</footer>
 </body>
 </html>
