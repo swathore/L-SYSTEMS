@@ -3,10 +3,28 @@ let maxLevel = 7;
 let frameCounter = 0;
 let framesPerLevel = 60; // Numero di frame per ogni livello
 
+function getSierpinskiSize() {
+    // Trova la larghezza del contenitore
+    const el = document.getElementById('sierpinski-canvas');
+    if (el) {
+        const w = el.offsetWidth;
+        const h = el.offsetHeight;
+        return [w, h];
+    }
+    // fallback
+    return [min(windowWidth, windowHeight), min(windowWidth, windowHeight)];
+}
+
 function setup() {
-    let canvas = createCanvas(800, 800);
+    let [w, h] = getSierpinskiSize();
+    let canvas = createCanvas(w, h);
     canvas.parent('sierpinski-canvas');
     frameRate(30); // Velocità dell'animazione
+}
+
+function windowResized() {
+    let [w, h] = getSierpinskiSize();
+    resizeCanvas(w, h);
 }
 
 function draw() {
@@ -16,13 +34,13 @@ function draw() {
     noFill();
 
     // Calcola le dimensioni del triangolo principale
-    let margin = 10;
+    let margin = Math.max(20, Math.min(width, height) * 0.03);
     let maxSideByWidth = width - margin * 2;
     let maxSideByHeight = (height - margin * 2) * 2 / Math.sqrt(3);
     let size = Math.min(maxSideByWidth, maxSideByHeight);
     let h = size * (Math.sqrt(3)/2);
     let x1 = width / 2;
-    let y1 = (height - h) / 2;
+    let y1 = margin;
     let x2 = x1 - size / 2;
     let y2 = y1 + h;
     let x3 = x1 + size / 2;
