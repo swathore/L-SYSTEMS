@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>L-SYSTEMS | SISTEMI DI LINDENMAYER</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+	<script src="sketch.js"></script>
+</head>
+<body>
+	<header>
+		<div class="header-content">
+			<div class="title-section">
+				<h1>L-SYSTEMS</h1>
+				<div class="subtitle">SISTEMI DI LINDENMAYER</div>
+			</div>
+		</div>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#intro">INTRODUZIONE</a></li>
+			<li><a href="#definizione">COMPONENTI BASE</a></li>
+			<li><a href="#esempi">ESEMPI</a></li>
+			<li><a href="#applicazioni">APPLICAZIONI</a></li>
+			<li><a href="#conclusioni">CONCLUSIONI</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<section id="intro">
+			<h2>INTRODUZIONE</h2>
+			<div class="content">
+				<p>I sistemi di Lindenmayer, o sistemi-L, sono un tipo particolare di grammatica formale sviluppata nel 1968 dal biologo ungherese Aristid Lindenmayer, con l'intento di modellare formalmente i processi di crescita e sviluppo degli organismi multicellulari, in particolare vegetali.</p>
+				<div class="highlight-box">
+					<p>I sistemi-L si caratterizzano per la loro natura parallela: in ogni passaggio, tutte le lettere (o simboli) di una stringa vengono riscritte contemporaneamente secondo un insieme di regole di produzione.</p>
+				</div>
+				<p>Questo approccio riflette la realtà biologica in cui, durante la crescita di un organismo, molte cellule si dividono simultaneamente.</p>
+			</div>
+		</section>
+
+		<section id="definizione">
+			<h2>COMPONENTI BASE</h2>
+			<div class="content">
+				<div class="components">
+					<div class="component">
+						
+						<ul>
+							<li>Alfabeto di simboli (utilizzabili per costruire stringhe)</li>
+							<li>Assioma o stringa iniziale (da cui ha inizio il processo)</li>
+							<li>Regole di produzione (che determinano come i simboli si trasformano ad ogni interazione)</li>
+							<div class="highlight-box">
+
+							<p>Applicando le regole in maniera iterativa, si genera una sequenza di stringhe sempre più complesse, che può essere infinita.Questo metodo risulta estremamente efficace per rappresentare fenomeni di crescita ramificata e auto-similarità.</p>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="esempi">
+			<h2>ESEMPI</h2>
+			<div class="content">
+				<div class="example-box">
+					<h3>ALBERO FRATTALE</h3>
+					<pre>
+Variabili: 0, 1
+Costanti: [, ]
+Assioma: 0
+Regole:
+1 → 11
+0 → 1[0]0
+					</pre>
+					<div class="visualization-box">
+						<div id="tree-canvas"></div>
+					</div>
+				</div>
+
+				<div class="example-box">
+					<h3>CRESCITA ALGA</h3>
+					<pre>
+Variabili: A, B
+Assioma: A
+Regole:
+A → AB
+B → A
+					</pre>
+					<div class="visualization-box">
+						<div id="algae-canvas"></div>
+					</div>
+				</div>
+
+				<div class="example-box">
+					<h3>CURVA DI KOCH</h3>
+					<pre>
+Alfabeto: V = {F, +, -}
+Assioma: F
+Regola:
+F → F+F--F+F
+Angolo: θ = 60°
+
+Lunghezza dopo n iterazioni:
+Ln = L0 · (4/3)^n
+					</pre>
+					<div class="visualization-box">
+						<div id="koch-canvas"></div>
+					</div>
+				</div>
+
+				<div class="example-box">
+					<h3>TRIANGOLO DI SIERPIŃSKI</h3>
+					<pre>
+Metodo geometrico:
+Livello 0: triangolo equilatero
+Livello 1: 4 triangoli, uno rimosso
+Livello n: suddivisione ricorsiva
+
+Proprietà:
+Numero triangoli: Tn = 3^n
+Lunghezza lato: an = a/(2^n)
+					</pre>
+					<div class="visualization-box">
+						<div id="sierpinski-canvas"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="applicazioni">
+			<h2>APPLICAZIONI</h2>
+			<div class="content">
+				<div class="grid">
+					<div class="grid-item">
+						<h3>ARCHITETTURA</h3>
+						<p>Eden Project, Cornovaglia</p>
+					</div>
+					<div class="grid-item">
+						<h3>DESIGN</h3>
+						<p>Lampada Hyphae</p>
+					</div>
+					<div class="grid-item">
+						<h3>ARTE GENERATIVA</h3>
+						<p>Forme organiche e frattali</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="conclusioni">
+			<h2>CONCLUSIONI</h2>
+			<div class="content">
+				<p>Gli L-Systems rappresentano un ponte tra la natura e la tecnologia, offrendo applicazioni che spaziano dalla biologia alla scultura digitale, dall'urbanistica all'intelligenza artificiale creativa.</p>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>L-SYSTEMS © 2024</p>
+	</footer>
+</body>
+</html>
