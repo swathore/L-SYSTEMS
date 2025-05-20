@@ -4,32 +4,29 @@ let frameCounter = 0;
 let framesPerLevel = 60; // Numero di frame per ogni livello
 
 function setup() {
-    let canvas = createCanvas(400, 400);
+    let canvas = createCanvas(800, 800);
     canvas.parent('sierpinski-canvas');
     frameRate(30); // Velocità dell'animazione
 }
 
 function draw() {
-    background(0);
-    stroke(0, 0, 255); // Colore blu
+    background(255);
+    stroke(0); // Colore nero
     strokeWeight(1);
     noFill();
 
     // Calcola le dimensioni del triangolo principale
-    let size = min(width, height) * 0.8;
+    let margin = 10;
+    let maxSideByWidth = width - margin * 2;
+    let maxSideByHeight = (height - margin * 2) * 2 / Math.sqrt(3);
+    let size = Math.min(maxSideByWidth, maxSideByHeight);
     let h = size * (Math.sqrt(3)/2);
-    
-    // Punto superiore del triangolo
-    let x1 = width/2;
-    let y1 = (height - h)/2;
-    
-    // Punto in basso a sinistra
-    let x2 = width/2 - size/2;
-    let y2 = (height + h)/2;
-    
-    // Punto in basso a destra
-    let x3 = width/2 + size/2;
-    let y3 = (height + h)/2;
+    let x1 = width / 2;
+    let y1 = (height - h) / 2;
+    let x2 = x1 - size / 2;
+    let y2 = y1 + h;
+    let x3 = x1 + size / 2;
+    let y3 = y2;
 
     // Disegna il triangolo di Sierpinski con il livello corrente
     sierpinski(x1, y1, x2, y2, x3, y3, currentLevel);
@@ -65,7 +62,7 @@ function sierpinski(x1, y1, x2, y2, x3, y3, level) {
 
     // Effetto di fade-in per i nuovi triangoli
     let alpha = map(frameCounter, 0, framesPerLevel, 0, 255);
-    stroke(0, 0, 255, alpha);
+    stroke(0, alpha); // Colore nero con trasparenza
 
     // Ricorsione per i tre triangoli più piccoli
     sierpinski(x1, y1, x12, y12, x31, y31, level - 1);
