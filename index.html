@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
 	<script src="sketch.js"></script>
+	<script src="sierpinski.js"></script>
 </head>
 <body>
 	<header>
@@ -38,6 +39,13 @@
 					<p>I sistemi-L si caratterizzano per la loro natura parallela: in ogni passaggio, tutte le lettere (o simboli) di una stringa vengono riscritte contemporaneamente secondo un insieme di regole di produzione.</p>
 				</div>
 				<p>Questo approccio riflette la realtà biologica in cui, durante la crescita di un organismo, molte cellule si dividono simultaneamente.</p>
+
+				<div class="example-box">
+					<h3>ESEMPI CLASSICI</h3>
+					<p><strong>Albero Frattale:</strong> Un esempio fondamentale che mostra come regole semplici possano creare strutture complesse e naturali. Utilizzando le regole 1 → 11 e 0 → 1[0]0, il sistema genera una struttura ramificata auto-similare che ricorda un albero.</p>
+					
+					<p><strong>Crescita Alga:</strong> Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Con le regole A → AB e B → A, il sistema genera una sequenza che cresce in modo esponenziale, seguendo un pattern simile alla sequenza di Fibonacci.</p>
+				</div>
 			</div>
 		</section>
 
@@ -108,66 +116,6 @@ Risultato: Un quadrato
 			<h2>ESEMPI</h2>
 			<div class="content">
 				<div class="example-box">
-					<h3>ALBERO FRATTALE</h3>
-					<p>Un esempio di sistema-L che genera un albero frattale tramite riscrittura ricorsiva e turtle graphics. Questo sistema mostra come regole semplici possano creare strutture complesse e naturali.</p>
-					
-					<pre>
-Sistema-L:
-- Variabili: 0, 1
-- Costanti: [, ]
-- Assioma: 0
-- Regole:
-  1 → 11
-  0 → 1[0]0
-
-Evoluzione della stringa:
-0 → 1[0]0 → 11[1[0]0]1[0]0 → 1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0
-
-Interpretazione grafica Turtle:
-- 0: disegna linea con foglia
-- 1: disegna linea
-- [: salva posizione e ruota a sinistra 45°
-- ]: ripristina posizione e ruota a destra 45°
-					</pre>
-					<div class="highlight-box">
-						<p>Questo sistema produce una struttura ramificata e auto-similare simile a un albero. La regola 0 → 1[0]0 crea la ramificazione, mentre 1 → 11 fa crescere i rami. Le parentesi quadre gestiscono la memoria della posizione per creare i rami secondari.</p>
-					</div>
-					<div class="visualization-box">
-						<div id="tree-canvas"></div>
-					</div>
-				</div>
-
-				<div class="example-box">
-					<h3>CRESCITA ALGA</h3>
-					<p>Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Questo L-System semplice mostra come regole elementari possano generare pattern complessi di crescita.</p>
-					
-					<pre>
-Sistema-L:
-- Variabili: A, B
-- Costanti: nessuna
-- Assioma: A
-- Regole:
-  A → AB
-  B → A
-
-Evoluzione per iterazioni (n):
-n=0 : A
-n=1 : AB
-n=2 : ABA
-n=3 : ABAAB
-n=4 : ABAABABA
-n=5 : ABAABABAABAAB
-n=6 : ABAABABAABAABABAABABA
-					</pre>
-					<div class="highlight-box">
-						<p>La sequenza mostra una crescita autoreplicante e deterministica. Ogni iterazione genera una stringa più lunga, seguendo un pattern che ricorda la sequenza di Fibonacci. La lunghezza della stringa cresce in modo esponenziale, dimostrando la potenza di questo semplice sistema.</p>
-					</div>
-					<div class="visualization-box">
-						<div id="algae-canvas"></div>
-					</div>
-				</div>
-
-				<div class="example-box">
 					<h3>CURVA DI KOCH</h3>
 					<p>Una delle prime curve frattali scoperte, creata da Helge von Koch nel 1904. Partendo da un semplice segmento, ad ogni passo ogni segmento viene sostituito da quattro segmenti più piccoli. Questo processo crea una curva sempre più frastagliata ma incredibilmente regolare.</p>
 					
@@ -204,7 +152,7 @@ Proprietà:
 - Dimensione frattale: log(3)/log(2) ≈ 1.585
 					</pre>
 					<div class="visualization-box">
-						<div id="sierpinski-canvas"></div>
+						<div id="sierpinski-canvas" style="width: 400px; height: 400px; margin: 0 auto;"></div>
 					</div>
 				</div>
 			</div>
