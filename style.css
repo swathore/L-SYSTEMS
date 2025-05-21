@@ -173,14 +173,14 @@ section h2 {
 }
 
 .example-box + .example-box {
-    margin-top: 28px;
+    margin-top: 0;
 }
 
 .visualization-box {
     background: #fff;
     border-radius: 0;
-    padding: 18px 24px 0 24px;
-    margin: 18px 0 0 0;
+    padding: 5px 24px 0 24px;
+    margin: 0;
     text-align: left;
     box-shadow: none;
     min-height: 520px;
@@ -327,8 +327,8 @@ button:hover, .btn:hover {
 .highlight-box h3, .example-box h3 {
     color: #d60000;
     font-size: 0.95rem;
-    margin-top: 60px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -341,7 +341,7 @@ button:hover, .btn:hover {
 }
 
 .content p {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 #koch-anim-canvas, #sierpinski-canvas {
@@ -582,4 +582,32 @@ main, header, footer {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+.highlight-box {
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin: 14px 0 16px 0;
+    padding: 0 24px;
+    box-shadow: none;
+}
+
+.highlight-box h4 {
+    color: #111;
+    font-size: 0.95rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.highlight-box ul {
+    padding-left: 24px;
+    margin: 0;
+}
+
+.highlight-box ul ul {
+    padding-left: 24px;
+    margin: 5px 0;
 } 
