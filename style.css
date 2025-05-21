@@ -21,7 +21,7 @@ body {
     color: #111;
     margin: 0;
     padding: 0;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     letter-spacing: 0.04em;
     text-transform: none;
 }
@@ -30,7 +30,7 @@ body {
 header {
     background: #fff;
     color: #d60000;
-    padding: 60px 0 20px 0;
+    padding: 60px 0 60px 0;
     text-align: left;
     border: none;
 }
@@ -43,6 +43,7 @@ header {
 
 .title-section {
     padding-left: 0;
+    margin-bottom: 40px;
 }
 
 .title-section h1 {
@@ -84,10 +85,10 @@ nav {
 nav ul {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 8px;
     list-style: none;
     margin: 0;
-    padding: 0 0 0 32px;
+    padding: 0 0 0 16px;
     width: 100%;
 }
 
@@ -100,8 +101,8 @@ nav a {
     color: #d60000;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.08rem;
-    padding: 18px 0 10px 0;
+    font-size: 0.95rem;
+    padding: 10px 0 5px 0;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition: color 0.2s;
@@ -116,7 +117,7 @@ nav a:hover {
 main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 32px 60px 32px;
+    padding: 0 48px 60px 48px;
 }
 
 section {
@@ -125,25 +126,33 @@ section {
     border-radius: 0;
     box-shadow: none;
     margin-bottom: 60px;
-    padding: 0 0 36px 0;
+    padding: 0 24px 36px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 15px;
 }
 
 section h2 {
     color: #d60000;
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 28px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-align: left;
+    padding: 0 24px;
 }
 
 .content p, .content ul, .content pre {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.4;
     color: #111;
     letter-spacing: 0.04em;
+    padding: 0 24px;
 }
 
 /* Box e contenitori */
@@ -164,10 +173,11 @@ section h2 {
 .visualization-box {
     background: #fff;
     border-radius: 0;
-    padding: 18px 0 8px 0;
+    padding: 18px 24px 8px 24px;
     margin: 18px 0 0 0;
-    text-align: center;
+    text-align: left;
     box-shadow: none;
+    min-height: 520px;
 }
 
 pre {
@@ -179,7 +189,7 @@ pre {
     font-size: 1em;
     margin: 18px 0;
     border: none;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Space Mono', 'Fira Mono', 'Menlo', 'Consolas', monospace;
     letter-spacing: 0.04em;
 }
 
@@ -196,11 +206,11 @@ footer {
     background: #fff;
     color: #d60000;
     text-align: left;
-    padding: 32px 32px 24px 32px;
-    font-size: 1.08rem;
+    padding: 15px 32px 24px 32px;
+    font-size: 0.665rem;
     letter-spacing: 0.12em;
     border: none;
-    margin-top: 60px;
+    margin-top: 0;
     text-transform: uppercase;
 }
 
@@ -310,13 +320,22 @@ button:hover, .btn:hover {
 
 .highlight-box h3, .example-box h3 {
     color: #d60000;
-    font-size: 1.15rem;
-    margin-top: 0;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-top: 60px;
+    margin-bottom: 10px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-align: left;
+    padding: 0 24px;
+}
+
+.highlight-box h3:first-child, .example-box h3:first-child {
+    margin-top: 0;
+}
+
+.content p {
+    margin-bottom: 30px;
 }
 
 #koch-anim-canvas, #sierpinski-canvas {
@@ -357,7 +376,7 @@ main, header, footer {
 }
 
 .koch-caption {
-    font-size: 0.9em;
+    font-size: 0.5em;
     color: #333;
     margin-top: 8px;
 }
@@ -373,7 +392,7 @@ main, header, footer {
     }
     
     .koch-caption {
-        font-size: 0.8em;
+        font-size: 0.4em;
     }
 }
 
@@ -383,7 +402,7 @@ main, header, footer {
     }
     
     .koch-caption {
-        font-size: 0.75em;
+        font-size: 0.35em;
     }
 }
 
@@ -401,29 +420,48 @@ main, header, footer {
 
 .tree-row {
     display: flex;
-    justify-content: flex-start;
-    gap: 18px;
+    justify-content: space-between;
+    margin-bottom: 20px;
     width: 100%;
-    align-items: flex-end;
 }
 
 .tree-item {
+    flex: 1;
     text-align: center;
-    flex: 0 1 auto;
+    margin: 0 10px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.tree-item:nth-child(3) {
+    margin-right: 0;
+}
+
+.tree-row:last-child .tree-item:last-child {
+    margin-left: auto;
+    margin-right: 0;
+    width: calc(33.33% - 20px);
 }
 
 .tree-item img {
     width: 173px;
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 /* Specific style for tree5 */
+.tree5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .tree5 img {
     width: 138px;  /* 20% smaller than 173px */
+    margin-top: auto;
 }
 
 .tree-item div {
@@ -471,4 +509,23 @@ main, header, footer {
     .tree-item div {
         font-size: 0.8em;
     }
+}
+
+#sierpinski-canvas {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    position: relative;
+}
+
+#sierpinski-canvas canvas {
+    display: block;
+    margin: 0;
+}
+
+#sierpinski-canvas input[type="range"] {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px 0;
+    display: block;
 } 
