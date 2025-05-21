@@ -366,7 +366,7 @@ main, header, footer {
     text-align: left;
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
 }
 
@@ -378,6 +378,23 @@ main, header, footer {
     object-fit: contain;
     margin: 0;
     display: block;
+}
+
+.koch-animation[src="koch.png"] {
+    max-width: 300px;
+    width: 100%;
+    aspect-ratio: auto;
+    margin: 20px 0;
+    display: block;
+}
+
+.koch-animation[src="triangle.gif"] {
+    max-width: 300px;
+    width: 100%;
+    aspect-ratio: auto;
+    margin: 20px 0;
+    display: block;
+    text-align: left;
 }
 
 .koch-caption {

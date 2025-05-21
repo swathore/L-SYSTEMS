@@ -22,8 +22,7 @@
 			<li><a href="#definizione">COMPONENTI BASE</a></li>
 			<li><a href="#turtle">TURTLE GEOMETRY</a></li>
 			<li><a href="#esempi">ESEMPI</a></li>
-			<li><a href="#vantaggi-sfide">VANTAGGI E SFIDE</a></li>
-			<li><a href="#conclusioni">CONCLUSIONI</a></li>
+			<li><a href="#vantaggi-sfide">CONCLUSIONI</a></li>
 			<li><a href="#sitografia">SITOGRAFIA</a></li>
 		</ul>
 	</nav>
@@ -165,28 +164,12 @@
 						<li><strong>F</strong>: avanti (disegna una linea)</li>
 						<li><strong>+</strong>: ruota a destra di un angolo θ</li>
 						<li><strong>-</strong>: ruota a sinistra di un angolo θ</li>
-						<li><strong>[</strong>: salva la posizione e l'orientamento attuale (inizio di un ramo)</li>
-						<li><strong>]</strong>: ripristina la posizione e l'orientamento precedenti (fine di un ramo)</li>
+						<li><strong>[</strong>: salva la posizione e l'orientamento attuale</li>
+						<li><strong>]</strong>: ripristina la posizione e l'orientamento precedenti</li>
 					</ul>
-				</div>
+				
 
-				<div class="highlight-box">
-					<h3>COMANDI 3D</h3>
-					<p>Per la modellazione tridimensionale, sono disponibili comandi aggiuntivi:</p>
-					<ul>
-						<li><strong>&, ^</strong>: rotazioni lungo l'asse Z</li>
-						<li><strong>\, /</strong>: rotazioni lungo l'asse X</li>
-						<li><strong>&lt;, &gt;</strong>: rotazioni lungo l'asse Y</li>
-						<li><strong>|</strong>: rotazione di 180°</li>
-					</ul>
-				</div>
-
-				<div class="example-box">
-					<h3>ESEMPIO DI MOVIMENTO</h3>
-					<pre>
-
-
-
+				
 					</pre>
 					<div class="visualization-box turtle-container">
 						<img src="turtle-steps.jpg" alt="Passi della turtle graphics per disegnare un quadrato" class="turtle-steps">
@@ -206,7 +189,7 @@
 			<div class="content">
 				<div class="example-box">
 					<h3>CURVA DI KOCH</h3>
-					<p>Una delle prime curve frattali scoperte, creata da Helge von Koch nel 1904. Partendo da un semplice segmento, ad ogni passo ogni segmento viene sostituito da quattro segmenti più piccoli. Questo processo crea una curva sempre più frastagliata ma incredibilmente regolare.</p>
+					<p>Una delle prime curve frattali scoperte, creata da Helge von Koch nel 1904. Partendo da un semplice segmento, ad ogni passo viene sostituito da quattro più piccoli. Questo processo crea una curva sempre più frastagliata ma regolare.</p>
 					
 					<pre>
 Variabili e regole:
@@ -218,18 +201,19 @@ Proprietà:
 - Lunghezza: aumenta di 4/3 ad ogni livello
 - Perimetro: tende all'infinito
 - Area: rimane finita
-- Dimensione frattale: log(4)/log(3) ≈ 1.262
 					</pre>
 					<div class="visualization-box">
 						<div class="koch-animation-container">
 							<img src="koch_curve.gif" alt="Animazione della curva di Koch" class="koch-animation">
+							<img src="koch.png" alt="Curva di Koch" class="koch-animation">
 						</div>
 					</div>
 				</div>
 
 				<div class="example-box">
 					<h3>TRIANGOLO DI SIERPIŃSKI</h3>
-					<p>Un frattale che nasce da un semplice triangolo equilatero. Ad ogni passo, ogni triangolo viene diviso in quattro parti e quello centrale viene rimosso. Questo processo, ripetuto all'infinito, crea un pattern affascinante di triangoli sempre più piccoli.</p>
+					<p>Il triangolo di Sierpinski è un frattale che si ottiene partendo da un triangolo equilatero e rimuovendo ricorsivamente il triangolo centrale da ogni triangolo rimanente. Questo processo crea un pattern geometrico auto-simile che ha una dimensione frattale di log(3)/log(2) ≈ 1.585.</p>
+					<img src="triangle.gif" alt="Triangolo di Sierpinski" class="koch-animation">
 					
 					<pre>
 Variabili e regole:
@@ -238,43 +222,35 @@ Variabili e regole:
 - Angolo: 60°
 
 Proprietà:
-- Numero triangoli: triplica ad ogni livello (3^n)
-- Dimensione: si dimezza ad ogni livello (a/2^n)
-- Dimensione frattale: log(3)/log(2) ≈ 1.585
+- Numero triangoli: triplica ad ogni livello
+- Dimensione: si dimezza ad ogni livello
 					</pre>
 				</div>
 			</div>
 		</section>
 
 		<section id="vantaggi-sfide">
-			<h2>VANTAGGI E SFIDE</h2>
+			<h2>CONCLUSIONI - vantaggi e sfide</h2>
 			<div class="content">
 				<div class="highlight-box">
 					<h3>VANTAGGI</h3>
 					<ul>
-						<li><strong>Efficienza</strong>: Un piccolo insieme di regole può generare strutture complesse e dettagliate, rendendo il sistema molto efficiente nella rappresentazione di forme naturali.</li>
-						<li><strong>Versatilità</strong>: Gli L-Systems possono essere applicati in diversi contesti, dalla modellazione di piante alla generazione di arte digitale, dimostrando una straordinaria adattabilità.</li>
-						<li><strong>Precisione Matematica</strong>: La natura formale e matematica degli L-Systems permette una rappresentazione precisa e riproducibile di pattern naturali complessi.</li>
-						<li><strong>Scalabilità</strong>: Il sistema può essere facilmente esteso aggiungendo nuove regole o modificando quelle esistenti, permettendo una crescita controllata della complessità.</li>
+						<li><strong>Efficienza:</strong> Poche regole bastano per generare strutture complesse, con un ottimo rapporto tra semplicità e risultato.</li>
+						<li><strong>Versatilità:</strong> Usati in botanica, arte digitale e simulazioni, si adattano a molti contesti.</li>
+						<li><strong>Precisione:</strong> La base matematica garantisce coerenza e riproducibilità.</li>
+						<li><strong>Scalabilità:</strong> Aggiungendo o modificando le regole, il sistema cresce in modo controllato.</li>
 					</ul>
 				</div>
 
 				<div class="highlight-box">
 					<h3>SFIDE</h3>
 					<ul>
-						<li><strong>Sensibilità alle Regole</strong>: Piccole modifiche nelle regole possono portare a risultati radicalmente diversi, richiedendo un'attenta calibrazione.</li>
-						<li><strong>Complessità Computazionale</strong>: Con l'aumentare delle iterazioni, la lunghezza delle stringhe cresce esponenzialmente, richiedendo risorse computazionali significative.</li>
-						<li><strong>Interpretazione Geometrica</strong>: La traduzione delle stringhe in forme geometriche può essere complessa, specialmente quando si lavora con sistemi 3D o strutture ramificate.</li>
-						<li><strong>Limitazioni nella Modellazione</strong>: Alcuni fenomeni naturali potrebbero richiedere regole troppo complesse per essere efficacemente modellati con L-Systems puri.</li>
+						<li><strong>Sensibilità:</strong> Piccole variazioni nelle regole possono cambiare tutto, serve precisione.</li>
+						<li><strong>Costi computazionali:</strong> Più iterazioni = stringhe lunghe e pesanti da gestire.</li>
+						<li><strong>Interpretazione grafica:</strong> Tradurre le regole in forme visive, soprattutto in 3D, può essere complicato.</li>
+						<li><strong>Limiti di modellazione:</strong> Alcuni processi naturali sono troppo complessi per essere resi con regole semplici.</li>
 					</ul>
 				</div>
-			</div>
-		</section>
-
-		<section id="conclusioni">
-			<h2>CONCLUSIONI</h2>
-			<div class="content">
-				<p>Gli L-Systems, nati per modellare la crescita di organismi semplici, si sono evoluti in uno strumento potente e versatile per rappresentare, simulare e creare strutture naturali e artistiche stimolando nuove visioni in ambiti che spaziano dalla biologia alla scultura digitale, dall'urbanistica all'intelligenza artificiale creativa.</p>
 			</div>
 		</section>
 
