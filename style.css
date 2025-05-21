@@ -30,14 +30,14 @@ body {
 header {
     background: #fff;
     color: #d60000;
-    padding: 60px 0 60px 0;
+    padding: 30px 0 30px 0;
     text-align: left;
     border: none;
 }
 
 .header-content {
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0 32px 0 32px;
 }
 
@@ -117,7 +117,7 @@ nav a:hover {
 main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 48px 60px 48px;
+    padding: 0 48px 30px 48px;
 }
 
 section {
@@ -125,8 +125,8 @@ section {
     border: none;
     border-radius: 0;
     box-shadow: none;
-    margin-bottom: 60px;
-    padding: 0 24px 36px 24px;
+    margin-bottom: 30px;
+    padding: 0 24px 18px 24px;
     border-bottom: 1px solid #eee;
 }
 
@@ -140,7 +140,7 @@ section h2 {
     font-size: 2rem;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 28px;
+    margin-bottom: 14px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-align: left;
@@ -160,20 +160,26 @@ section h2 {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin: 28px 0 32px 0;
-    padding: 0 0 0 0;
+    margin: 14px 0 16px 0;
+    padding: 0;
     box-shadow: none;
 }
 
 .example-box {
     background: #fff;
     border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.example-box + .example-box {
+    margin-top: 28px;
 }
 
 .visualization-box {
     background: #fff;
     border-radius: 0;
-    padding: 18px 24px 8px 24px;
+    padding: 18px 24px 0 24px;
     margin: 18px 0 0 0;
     text-align: left;
     box-shadow: none;
@@ -358,12 +364,10 @@ main, header, footer {
 /* Koch Animation Styles */
 .koch-animation-container {
     text-align: left;
-    margin-top: 10px;
     width: 100%;
     max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 32px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .koch-animation {
@@ -373,12 +377,13 @@ main, header, footer {
     aspect-ratio: 10/3;
     object-fit: contain;
     margin: 0;
+    display: block;
 }
 
 .koch-caption {
     font-size: 0.5em;
     color: #333;
-    margin-top: 8px;
+    margin: 8px 0 0 0;
 }
 
 /* Media Queries for Koch Animation */
@@ -511,21 +516,70 @@ main, header, footer {
     }
 }
 
-#sierpinski-canvas {
-    width: 100%;
-    max-width: 600px;
-    margin: 0;
-    position: relative;
+
+
+.algae-growth-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
 }
 
-#sierpinski-canvas canvas {
+.algae-image {
+    max-width: 45%;
+    height: auto;
+    padding: 0.5rem;
+    background-color: white;
+}
+
+#turtle-canvas {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
     display: block;
+}
+
+#turtle-canvas canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+.turtle-flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.turtle-container, .video-container {
+    padding: 0;
     margin: 0;
 }
 
-#sierpinski-canvas input[type="range"] {
+.turtle-steps, .turtle-video {
     width: 100%;
-    max-width: 600px;
-    margin: 10px 0;
+    max-width: 420px;
+    height: auto;
+    margin: 0;
     display: block;
+}
+
+.video-container {
+    margin: 0;
+}
+
+.turtle-caption {
+    font-size: 0.8em;
+    color: #333;
+    margin: 8px 0 0 0;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .turtle-flex-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 } 

@@ -5,10 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>L-SYSTEMS | SISTEMI DI LINDENMAYER</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-	<script src="sketch.js"></script>
-	<script src="koch.js"></script>
-	<script src="sierpinski.js"></script>
 </head>
 <body>
 	<header>
@@ -79,6 +75,13 @@
 				</div>
 
 				<p><strong>Crescita Alga:</strong> Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Con le regole A → AB e B → A, il sistema genera una sequenza che cresce in modo esponenziale, seguendo un pattern simile alla sequenza di Fibonacci.</p>
+				
+				<div class="visualization-box">
+					<div class="algae-growth-images">
+						<img src="REGOLAa.jpg" alt="Schema di crescita dell'alga 1" class="algae-image">
+						<img src="REGOLAb.jpg" alt="Schema di crescita dell'alga 2" class="algae-image">
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -133,13 +136,18 @@
 				<div class="example-box">
 					<h3>ESEMPIO DI MOVIMENTO</h3>
 					<pre>
-Comandi: F+F-F-F+F
-Angolo: 90°
 
-Risultato: Un quadrato
+
+
 					</pre>
-					<div class="visualization-box">
-						<div id="turtle-canvas"></div>
+					<div class="visualization-box turtle-container">
+						<img src="turtle-steps.jpg" alt="Passi della turtle graphics per disegnare un quadrato" class="turtle-steps">
+					</div>
+					<div class="visualization-box video-container">
+						<video class="turtle-video" controls>
+							<source src="turtlegeometry.mp4" type="video/mp4">
+							Il tuo browser non supporta il tag video.
+						</video>
 					</div>
 				</div>
 			</div>
@@ -165,11 +173,10 @@ Proprietà:
 - Dimensione frattale: log(4)/log(3) ≈ 1.262
 					</pre>
 					<div class="visualization-box">
-						<div id="koch-canvas"></div>
-					</div>
-					<div class="koch-animation-container">
-						<img src="koch_curve.gif" alt="Animazione della curva di Koch" class="koch-animation">
-						<p class="koch-caption">Animazione della crescita della curva di Koch</p>
+						<div class="koch-animation-container">
+							<img src="koch_curve.gif" alt="Animazione della curva di Koch" class="koch-animation">
+							<p class="koch-caption">Animazione della crescita della curva di Koch</p>
+						</div>
 					</div>
 				</div>
 
@@ -188,9 +195,6 @@ Proprietà:
 - Dimensione: si dimezza ad ogni livello (a/2^n)
 - Dimensione frattale: log(3)/log(2) ≈ 1.585
 					</pre>
-					<div class="visualization-box">
-						<div id="sierpinski-canvas"></div>
-					</div>
 				</div>
 			</div>
 		</section>
