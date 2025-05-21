@@ -32,7 +32,7 @@
 		<section id="intro">
 			<h2>INTRODUZIONE</h2>
 			<div class="content">
-				<p>I sistemi di Lindenmayer, o sistemi-L, sono un tipo particolare di grammatica formale sviluppata nel 1968 dal biologo ungherese Aristid Lindenmayer, con l'intento di modellare formalmente i processi di crescita e sviluppo degli organismi multicellulari, in particolare vegetali.</p>
+				<p>I sistemi di Lindenmayer, o sistemi-L, sono un tipo particolare di grammatica formale sviluppata nel 1968 dal biologo ungherese Aristid Lindenmayer, con l'intento di visualizzare formalmente i processi di crescita e sviluppo degli organismi multicellulari, in particolare vegetali.</p>
 				<div class="highlight-box">
 					<p>I sistemi-L si caratterizzano per la loro natura parallela: in ogni passaggio, tutte le lettere (o simboli) di una stringa vengono riscritte contemporaneamente secondo un insieme di regole di produzione.</p>
 				</div>
@@ -40,7 +40,34 @@
 
 				<div class="example-box">
 					<h3>ESEMPI CLASSICI</h3>
-					<p><strong>Albero Frattale:</strong> Un esempio fondamentale che mostra come regole semplici possano creare strutture complesse e naturali. Utilizzando le regole 1 → 11 e 0 → 1[0]0, il sistema genera una struttura ramificata auto-similare che ricorda un albero.</p>
+					<p><strong>Albero Frattale:</strong> mostra un sistema di Lindenmayer utilizzato per generare un albero frattale attraverso riscrittura ricorsiva e interpretazione grafica con la turtle geometry.</p>
+
+					<div class="highlight-box">
+						<h4>Definizione del sistema:</h4>
+						<ul>
+							<li>Variabili: 0, 1</li>
+							<li>Costanti: [, ]</li>
+							<li>Assioma (inizio): 0</li>
+							<li>Regole di produzione:
+								<ul>
+									<li>1 → 11</li>
+									<li>0 → 1[0]0</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<div class="highlight-box">
+						<h4>Evoluzione della stringa:</h4>
+						<ul>
+							<li>0 (assioma)</li>
+							<li>→ 1[0]0 (1ª ricorsione)</li>
+							<li>→ 11[1[0]0]1[0]0 (2ª ricorsione)</li>
+							<li>→ 1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0 (3ª ricorsione)</li>
+						</ul>
+					</div>
+
+					<p>Ad ogni passo, la stringa cresce esponenzialmente in complessità, sviluppando una struttura ramificata.</p>
 					
 					<div class="visualization-box alberi-frattali-gallery">
 						<div class="tree-row">
@@ -74,7 +101,28 @@
 					</div>
 				</div>
 
-				<p><strong>Crescita Alga:</strong> Uno dei primi esempi proposti da Lindenmayer, che simula la crescita di un'alga filamentosa. Con le regole A → AB e B → A, il sistema genera una sequenza che cresce in modo esponenziale, seguendo un pattern simile alla sequenza di Fibonacci.</p>
+				<p><strong>Crescita Alga:</strong> Uno dei primi esempi proposti da Lindenmayer riguarda la simulazione della crescita di un'alga filamentosa.</p>
+
+				<div class="highlight-box">
+					<h4>Regole di riscrittura:</h4>
+					<ul>
+						<li>A → AB</li>
+						<li>B → A</li>
+					</ul>
+				</div>
+
+				<div class="highlight-box">
+					<h4>Evoluzione della stringa:</h4>
+					<ul>
+						<li>A (assioma)</li>
+						<li>→ AB (1ª ricorsione)</li>
+						<li>→ ABA (2ª ricorsione)</li>
+						<li>→ ABAAB (3ª ricorsione)</li>
+						<li>→ ABAABABA (4ª ricorsione)</li>
+					</ul>
+				</div>
+
+				<p>Partendo dal simbolo iniziale A, il sistema genera una sequenza che si sviluppa in modo esponenziale a ogni iterazione, riflettendo la crescita progressiva e ramificata dell'organismo.</p>
 				
 				<div class="visualization-box">
 					<div class="algae-growth-images">
@@ -95,7 +143,7 @@
 					<ul>
 						<li><strong>V</strong> è l'alfabeto, un insieme finito di simboli</li>
 						<li><strong>ω</strong> è l'assioma o stringa iniziale</li>
-						<li><strong>P</strong> è un insieme di regole di produzione (productions), ognuna nella forma a → χ, dove a ∈ V e χ ∈ V*</li>
+						<li><strong>P</strong> è un insieme di regole di produzione</li>
 					</ul>
 				</div>
 				<p>Le regole vengono applicate simultaneamente a tutti i simboli della stringa corrente. Questa caratteristica distingue gli L-Systems dai sistemi di riscrittura sequenziale come le grammatiche di Chomsky.</p>
@@ -175,7 +223,6 @@ Proprietà:
 					<div class="visualization-box">
 						<div class="koch-animation-container">
 							<img src="koch_curve.gif" alt="Animazione della curva di Koch" class="koch-animation">
-							<p class="koch-caption">Animazione della crescita della curva di Koch</p>
 						</div>
 					</div>
 				</div>
