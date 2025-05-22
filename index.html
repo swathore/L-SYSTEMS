@@ -45,8 +45,7 @@
 						<h4>Definizione del sistema:</h4>
 						<ul>
 							<li>Variabili: 0, 1</li>
-							<li>Costanti: [, ]</li>
-							<li>Assioma (inizio): 0</li>
+						    <li>Assioma (inizio): 0</li>
 							<li>Regole di produzione:
 								<ul>
 									<li>1 → 11</li>
@@ -145,7 +144,7 @@
 						<li><strong>P</strong> è un insieme di regole di produzione</li>
 					</ul>
 				</div>
-				<p>Le regole vengono applicate simultaneamente a tutti i simboli della stringa corrente. Questa caratteristica distingue gli L-Systems dai sistemi di riscrittura sequenziale come le grammatiche di Chomsky.</p>
+				<p>Le regole vengono applicate simultaneamente a tutti i simboli della stringa corrente.</p>
 				<div class="highlight-box">
 					<p>Applicando le regole in maniera iterativa, si genera una sequenza di stringhe sempre più complesse, che può essere infinita. Questo metodo risulta estremamente efficace per rappresentare fenomeni di crescita ramificata e auto-similarità.</p>
 				</div>
@@ -162,8 +161,8 @@
 					<p>La tartaruga si muove seguendo comandi semplici:</p>
 					<ul>
 						<li><strong>F</strong>: avanti (disegna una linea)</li>
-						<li><strong>+</strong>: ruota a destra di un angolo θ</li>
-						<li><strong>-</strong>: ruota a sinistra di un angolo θ</li>
+						<li><strong>+</strong>: ruota a destra</li>
+						<li><strong>-</strong>: ruota a sinistra</li>
 						<li><strong>[</strong>: salva la posizione e l'orientamento attuale</li>
 						<li><strong>]</strong>: ripristina la posizione e l'orientamento precedenti</li>
 					</ul>
@@ -212,7 +211,7 @@ Proprietà:
 
 				<div class="example-box">
 					<h3>TRIANGOLO DI SIERPIŃSKI</h3>
-					<p>Il triangolo di Sierpinski è un frattale che si ottiene partendo da un triangolo equilatero e rimuovendo ricorsivamente il triangolo centrale da ogni triangolo rimanente. Questo processo crea un pattern geometrico auto-simile che ha una dimensione frattale di log(3)/log(2) ≈ 1.585.</p>
+					<p>Il triangolo di Sierpinski è un frattale che si ottiene partendo da un triangolo equilatero e rimuovendo ricorsivamente il triangolo centrale da ogni triangolo rimanente.</p>
 					<img src="triangle.gif" alt="Triangolo di Sierpinski" class="koch-animation">
 					
 					<pre>
